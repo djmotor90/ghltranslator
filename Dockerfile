@@ -15,8 +15,8 @@ COPY tsconfig.json ./
 # Build TypeScript
 RUN npm run build
 
-# Remove dev dependencies for production
-RUN npm ci --only=production && npm cache clean --force
+# Clean up node_modules and reinstall only production deps
+RUN rm -rf node_modules && npm ci --only=production
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
