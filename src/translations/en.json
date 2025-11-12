@@ -1,0 +1,44 @@
+{
+  "dashboard": "Dashboard",
+  "settings": "Settings",
+  "contacts": "Contacts",
+  "opportunities": "Opportunities",
+  "campaigns": "Campaigns",
+  "workflows": "Workflows",
+  "calendar": "Calendar",
+  "reporting": "Reporting",
+  "integrations": "Integrations",
+  "translation": {
+    "title": "GHL Translator",
+    "description": "Translate GHL interface to Russian",
+    "enable": "Enable translation",
+    "disable": "Disable translation",
+    "settings": "Translation settings",
+    "language": "Language",
+    "status": "Status",
+    "lastSync": "Last sync"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "import": "Import",
+    "export": "Export"
+  },
+  "messages": {
+    "success": "Operation completed successfully",
+    "error": "An error occurred",
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "confirmDelete": "Are you sure?"
+  },
+  "errors": {
+    "invalidInput": "Invalid input",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Forbidden",
+    "notFound": "Not found",
+    "serverError": "Server error"
+  }
+}

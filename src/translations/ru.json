@@ -1,0 +1,44 @@
+{
+  "dashboard": "Панель управления",
+  "settings": "Параметры",
+  "contacts": "Контакты",
+  "opportunities": "Возможности",
+  "campaigns": "Кампании",
+  "workflows": "Рабочие процессы",
+  "calendar": "Календарь",
+  "reporting": "Отчеты",
+  "integrations": "Интеграции",
+  "translation": {
+    "title": "Переводчик GHL",
+    "description": "Переведите интерфейс GHL на русский язык",
+    "enable": "Включить перевод",
+    "disable": "Отключить перевод",
+    "settings": "Параметры перевода",
+    "language": "Язык",
+    "status": "Статус",
+    "lastSync": "Последняя синхронизация"
+  },
+  "actions": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "add": "Добавить",
+    "import": "Импортировать",
+    "export": "Экспортировать"
+  },
+  "messages": {
+    "success": "Операция выполнена успешно",
+    "error": "Произошла ошибка",
+    "loading": "Загрузка...",
+    "saving": "Сохранение...",
+    "confirmDelete": "Вы уверены?"
+  },
+  "errors": {
+    "invalidInput": "Неверный ввод",
+    "unauthorized": "Не авторизовано",
+    "forbidden": "Доступ запрещен",
+    "notFound": "Не найдено",
+    "serverError": "Ошибка сервера"
+  }
+}

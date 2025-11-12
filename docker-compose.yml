@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: ghl-translator-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - ghl-translator
+
+  redis:
+    image: redis:7-alpine
+    container_name: ghl-translator-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ghl-translator
+
+  app:
+    build: .
+    container_name: ghl-translator-app
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      NODE_ENV: production
+      MONGODB_URI: mongodb://root:password@mongodb:27017/ghl-translator?authSource=admin
+      REDIS_URL: redis://redis:6379
+      GHL_CLIENT_ID: ${GHL_CLIENT_ID}
+      GHL_CLIENT_SECRET: ${GHL_CLIENT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - ghl-translator
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  ghl-translator:
+    driver: bridge
