@@ -28,7 +28,15 @@ class Logger {
   }
 
   error(message: string, error?: unknown) {
-    this.log(LogLevel.ERROR, 'ERROR', message, error);
+    let errorData = error;
+    if (error instanceof Error) {
+      errorData = {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+      };
+    }
+    this.log(LogLevel.ERROR, 'ERROR', message, errorData);
   }
 
   warn(message: string, data?: unknown) {

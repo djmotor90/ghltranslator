@@ -58,7 +58,8 @@ async function startServer() {
       logger.info(`Environment: ${config.nodeEnv}`);
     });
   } catch (error) {
-    logger.error('Failed to start server:', error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    logger.error(`Failed to start server: ${errorMessage}`, error);
     process.exit(1);
   }
 }
