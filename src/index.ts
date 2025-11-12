@@ -24,14 +24,19 @@ app.use((req, res, next) => {
 });
 
 // Routes
+logger.info('Registering routes...');
 app.use('/api/auth', authRoutes);
+logger.info('Auth routes registered');
 app.use('/api/accounts', accountRoutes);
+logger.info('Accounts routes registered');
 app.use('/api/translations', translationRoutes);
+logger.info('Translation routes registered');
 
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+logger.info('Health check endpoint registered');
 
 // 404 handler
 app.use((req, res) => {
